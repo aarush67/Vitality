@@ -19,7 +19,7 @@
 
 ### Option 1: Download `.dmg`
 
-> Coming Soon: [Releases](https://github.com/your-username/Vitality/releases)
+> [Releases](https://github.com/aarush67/Vitality/releases)
 
 1. Download the `.dmg`
 2. Drag `Vitality.app` to your `/Applications` folder
@@ -28,6 +28,6 @@
 ### Option 2: Build from Source
 
 ```bash
-git clone https://github.com/your-username/Vitality.git
+git clone https://github.com/aarush67/Vitality.git
 cd Vitality
 open Vitality.xcodeproj
