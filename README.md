@@ -8,10 +8,15 @@
 
 - 💻 **Live CPU Usage** — shown instantly in the menu bar
 - 🧠 **Accurate Memory Monitoring** — includes compressed memory
-- 🔋 **Battery Health** — know your battery’s real maximum capacity
-- 💾 **Disk Usage** — shows internal and external disks (with eject buttons)
-- 🧲 **Modern UI** — built with SwiftUI and styled with native blur, animation, and materials
-- ✅ **No dependencies**, no smcFanControl, no 3rd-party hacks — 100% native macOS APIs
+- 🔋 **Battery Health** — see real-world capacity and cycle count
+- 💾 **Disk Usage & Eject** — view internal & external volumes, eject safely
+- 🌐 **Network Activity** — see upload/download usage clearly
+- 🚀 **Top App Usage** — see top apps using the most CPU or RAM, with icons
+- ⏱ **Uptime & Thermal** — track system uptime and thermal status in real-time
+- 🪟 **Modern Apple UI** — Liquid Glass-inspired design with native blur, animations, and materials
+- 🧩 **Customizable Dashboard** — drag and reorder tiles with snapping animation
+- 📱 **Light/Dark Mode Adaptive** — fully responsive to system appearance
+- ✅ **No dependencies** — built entirely with native macOS APIs
 
 ---
 
@@ -22,8 +27,8 @@
 > [Releases](https://github.com/aarush67/Vitality/releases)
 
 1. Download the `.dmg`
-2. Drag `Vitality.app` to your `/Applications` folder
-3. Launch it — the icon appears in your menu bar!
+2. Drag `Vitality.app` into your `/Applications` folder
+3. Launch it — the icon will appear in your menu bar
 
 ### Option 2: Build from Source
 
