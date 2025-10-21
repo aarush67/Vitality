@@ -48,12 +48,16 @@ class SystemMonitor: ObservableObject {
             let (battHealth, cycleCount) = self.readBatteryStats()
             let disks = self.getDiskInfo()
             let uptime = self.getUptime()
+            
             let thermal = ProcessInfo.processInfo.thermalState
             let (rx, tx) = self.getNetworkStats()
+            
             let cpuApps = self.getTopCPUApps()
-            let memApps = self.getTopMemoryApps()
 
+            let memApps = self.getTopMemoryApps()
+            
             DispatchQueue.main.async {
+                
                 self.cpuUsage = cpu
                 self.memoryUsage = mem
                 self.batteryHealth = battHealth
@@ -77,8 +81,11 @@ class SystemMonitor: ObservableObject {
         var size = mach_msg_type_number_t(MemoryLayout<host_cpu_load_info_data_t>.stride / MemoryLayout<integer_t>.stride)
         var cpuInfo = host_cpu_load_info_data_t()
         let result = withUnsafeMutablePointer(to: &cpuInfo) {
+            
             $0.withMemoryRebound(to: integer_t.self, capacity: Int(size)) {
+                
                 host_statistics(mach_host_self(), HOST_CPU_LOAD_INFO, $0, &size)
+                
             }
         }
         guard result == KERN_SUCCESS else { return 0 }
@@ -114,6 +121,7 @@ class SystemMonitor: ObservableObject {
 
         let used = Double(stats.active_count + stats.wire_count) * Double(vm_kernel_page_size)
         let total = used + Double(stats.free_count + stats.inactive_count) * Double(vm_kernel_page_size)
+        print("used mem: ", used)
         return total == 0 ? 0 : used / total
     }
 
@@ -198,7 +206,8 @@ class SystemMonitor: ObservableObject {
     func getTopCPUApps() -> [AppUsage] {
         let task = Process()
         task.launchPath = "/bin/ps"
-        task.arguments = ["axo", "pid,pcpu,comm"]
+        
+        task.arguments = ["axo", "pid","pcpu","comm"]
 
         let pipe = Pipe()
         task.standardOutput = pipe
